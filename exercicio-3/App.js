@@ -6,7 +6,7 @@ export default function App() {
   const [numero, setNumero] = useState("");
   const [message, setMessage] = useState("");
   const [contatos, setContatos] = useState(new Map());
-  
+
   const capturarNome = (nome) => {
     setNome(nome);
     console.log("Nome capturado " + nome);
@@ -28,28 +28,35 @@ export default function App() {
     }
     )
   }
-  
+
   return (
     <View style={styles.container}>
     <View>
     <View>
     <Text>{message}</Text>
     </View>
-    
-    <TextInput
-    placeholder="Nome do contato..."
-    style=""
-    onChangeText={capturarNome}
-    />
-    <TextInput
-    placeholder="Número contato..."
-    style=""
+
+    <View style={styles.textInput}>
+      <TextInput
+      placeholder="Nome do contato..."
+      onChangeText={capturarNome}
+
+      />
+    </View>
+    <View style={styles.textInput}>
+      <TextInput
+    placeholder="NÃºmero contato..."
     onChangeText={capturarNumero}
+    selectTextOnFocus="false"
     />
+    </View>
+
     <View>
     <Button
     title="Adicionar contato"
     onPress={addContato}
+    color="#003300"
+
     />
     </View>
     </View>
@@ -71,13 +78,25 @@ export default function App() {
     const styles = StyleSheet.create({
       container: {
         flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
       },
       item: {
         padding: 20,
         marginVertical: 8,
-        marginHorizontal: 16,
+        marginHorizontal: 16
       },
       title: {
-        fontSize: 32,
+        fontSize: 32
       },
+      textInput: {
+        width: 200,
+        paddingVertical: 5,
+        borderWidth: 2,
+        marginVertical: 2,
+        borderRadius: 10,
+      },
+      button: {
+
+      }
     });
